@@ -3,6 +3,15 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/whatta_meal'
+    connection: {
+      host: 'localhost',
+      database: 'whatta_meal'
+    },
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds'
+    }
   }
 };
