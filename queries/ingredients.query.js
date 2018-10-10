@@ -6,7 +6,7 @@ fetchIngredients = () => {
 
 fetchIngredient = (id) => {
     //how to set up route so that i can get one specific ingredient.
-    return knex('ingredients').select('ingredients.name').where('id', id);
+    return knex('ingredients').select('ingredients.id','ingredients.name').where('id', id);
 }
 
 module.exports = {
