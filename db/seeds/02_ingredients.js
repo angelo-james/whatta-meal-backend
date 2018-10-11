@@ -21,7 +21,10 @@ exports.seed = function(knex, Promise) {
         {name: 'dried oregano'},
         {name: 'dried basil'},
         {name: 'diced green pepper'},
-        {name: 'shredded mozzarella cheese'}
+        {name: 'shredded mozzarella cheese'},
+        {name: 'dry spaghetti'},
+        {name: 'minced garlic'},
+        {name: 'pasta sauce'}
       ]);
     });
 };
