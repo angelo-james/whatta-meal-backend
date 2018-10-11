@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
         table.foreign('recipes_id').references('recipes.id');
         table.integer('ingredients_id').notNullable();
         table.foreign('ingredients_id').references('ingredients.id');
+        table.string('measurement');
       });
 };
 
