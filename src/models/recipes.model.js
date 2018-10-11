@@ -20,7 +20,18 @@ const fetchRecipe = (id) => {
     })
 }
 
+const createRecipe = (ingredientInfo) => {
+    ingredient = ingredientsQuery.createRecipe(ingredientInfo)
+
+    return ingredient.then(result => {
+        return result.length < 1
+        ? { error: 'error retreiving users', status: 404 }
+        : result
+    })
+}
+
 module.exports = {
     fetchRecipes,
-    fetchRecipe
+    fetchRecipe,
+    createRecipe
 }

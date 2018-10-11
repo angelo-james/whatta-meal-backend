@@ -6,7 +6,7 @@ const ingredientRoutes = require('./src/routes/ingredients.routes');
 const usersRoutes = require('./src/routes/users.routes');
 const recipesRoutes = require('./src/routes/recipes.routes');
 
-app.use(bodyParser());
+app.use(bodyParser.json());
 app.use('/ingredients', ingredientRoutes)
 app.use('/users', usersRoutes)
 app.use('/recipes', recipesRoutes)
