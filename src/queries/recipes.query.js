@@ -1,15 +1,15 @@
 const knex = require('./db')
 
-fetchRecipes = () => {
-    return knex.select().table('recipes');
+fetchRecipes = (userId, body) => {
+    return knex('recipes').select('*').where('users_id', userId);
 }
 
-fetchRecipe = (id) => {
+fetchRecipe = (userId, body) => {
     //how to set up route so that i can get one specific ingredient.
     return knex('recipes').select('recipes.id', 'recipes.name', 'recipes.users_id').where('id', id);
 }
 
-createRecipe = (ingredientInfo) => {
+createRecipe = (userId, body) => {
     return knex('recipes')
         .insert({
             name: ingredientInfo.name,

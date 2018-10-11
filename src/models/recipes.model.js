@@ -1,7 +1,7 @@
 const ingredientsQuery = require('../queries/recipes.query')
 
-const fetchRecipes = () => {
-    ingredients = ingredientsQuery.fetchRecipes()
+const fetchRecipes = (userId, body) => {
+    ingredients = ingredientsQuery.fetchRecipes(userId, body)
 
     return ingredients.then(result => {
         return result.length < 1
@@ -10,8 +10,8 @@ const fetchRecipes = () => {
     })
 }
 
-const fetchRecipe = (id) => {
-    ingredient = ingredientsQuery.fetchRecipe(id)
+const fetchRecipe = (userId, body) => {
+    ingredient = ingredientsQuery.fetchRecipe(userId, body)
 
     return ingredient.then(result => {
         return result.length < 1
@@ -20,8 +20,8 @@ const fetchRecipe = (id) => {
     })
 }
 
-const createRecipe = (ingredientInfo) => {
-    ingredient = ingredientsQuery.createRecipe(ingredientInfo)
+const createRecipe = (userId, body) => {
+    ingredient = ingredientsQuery.createRecipe(userId, body)
 
     return ingredient.then(result => {
         return result.length < 1
