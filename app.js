@@ -7,9 +7,9 @@ const usersRoutes = require('./src/routes/users.routes');
 const recipesRoutes = require('./src/routes/recipes.routes');
 
 app.use(bodyParser.json());
-app.use('/ingredients', ingredientRoutes)
+app.use('/users', ingredientRoutes)
 app.use('/users', usersRoutes)
-app.use('/recipes', recipesRoutes)
+app.use('/users', recipesRoutes)
 
 app.all('*', (req, res, next) => res.sendStatus(404))
 
