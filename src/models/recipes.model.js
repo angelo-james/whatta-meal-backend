@@ -1,4 +1,4 @@
-const ingredientsQuery = require('../../queries/recipes.query')
+const ingredientsQuery = require('../queries/recipes.query')
 
 const fetchRecipes = () => {
     ingredients = ingredientsQuery.fetchRecipes()
