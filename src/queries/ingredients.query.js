@@ -9,10 +9,16 @@ fetchIngredient = (id) => {
     return knex('ingredients').select('ingredients.id','ingredients.name').where('id', id);
 }
 
-createIngredient = (body) => {
+createIngredient = (ingredientInfo) => {
     return knex('ingredients')
     .insert({
-        name: body.name
+        name: ingredientInfo.name
+    })
+    .then(result => {
+        return `'${ingredientInfo.name}' was successfully created!`
+    })
+    .catch(err => {
+        return err.message
     })
 }
 

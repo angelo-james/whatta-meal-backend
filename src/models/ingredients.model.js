@@ -20,8 +20,8 @@ const fetchIngredient = (id) => {
     })
 }
 
-const createIngredient = (body) => {
-    ingredient = ingredientsQuery.createIngredient(body)
+const createIngredient = (ingredientInfo) => {
+    ingredient = ingredientsQuery.createIngredient(ingredientInfo)
 
     return ingredient.then(result => {
         return result.length < 1
