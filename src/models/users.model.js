@@ -1,9 +1,9 @@
-const ingredientsQuery = require('../queries/users.query')
+const usersQuery = require('../queries/users.query')
 
 const fetchUsers = () => {
-    ingredients = ingredientsQuery.fetchUsers()
+    users = usersQuery.fetchUsers()
 
-    return ingredients.then(result => {
+    return users.then(result => {
         return result.length < 1
             ? { error: 'error retreiving users', status: 404 }
             : result
@@ -11,10 +11,20 @@ const fetchUsers = () => {
 }
 
 const fetchUser = (id) => {
-    ingredient = ingredientsQuery.fetchUser(id)
+    user = usersQuery.fetchUser(id)
 
-    return ingredient.then(result => {
+    return user.then(result => {
         return result.length < 1
+        ? { error: 'error retreiving users', status: 404 }
+        : result
+    })
+}
+
+const createUser = (userInfo) => {
+    user = usersQuery.createUser(userInfo)
+
+    return user.then(result => {
+        return !result
         ? { error: 'error retreiving users', status: 404 }
         : result
     })
@@ -22,5 +32,6 @@ const fetchUser = (id) => {
 
 module.exports = {
     fetchUsers,
-    fetchUser
+    fetchUser,
+    createUser
 }

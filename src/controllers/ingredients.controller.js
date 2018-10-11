@@ -25,7 +25,23 @@ fetchIngredient = (req, res, next) => {
     })
 }
 
+const createIngredient = (req, res, next) => {
+    let {body} = req
+    
+    
+    let promise = model.createIngredient(`${body}`);
+
+    promise.then(result => {
+        return result.error ? next(result) : res.status(200).json(result)
+    })
+
+    promise.catch(error => {
+        next(error)
+    })
+}
+
 module.exports = {
     fetchIngredients,
-    fetchIngredient
+    fetchIngredient,
+    createIngredient
 }

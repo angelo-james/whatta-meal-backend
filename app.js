@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const bodyParser = require('body-parser');
 const ingredientRoutes = require('./src/routes/ingredients.routes');
 const usersRoutes = require('./src/routes/users.routes');
 const recipesRoutes = require('./src/routes/recipes.routes');
 
+app.use(bodyParser());
 app.use('/ingredients', ingredientRoutes)
 app.use('/users', usersRoutes)
 app.use('/recipes', recipesRoutes)

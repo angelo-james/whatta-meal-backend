@@ -9,7 +9,15 @@ fetchIngredient = (id) => {
     return knex('ingredients').select('ingredients.id','ingredients.name').where('id', id);
 }
 
+createIngredient = (body) => {
+    return knex('ingredients')
+    .insert({
+        name: body.name
+    })
+}
+
 module.exports = {
     fetchIngredients,
-    fetchIngredient
+    fetchIngredient,
+    createIngredient
 }
