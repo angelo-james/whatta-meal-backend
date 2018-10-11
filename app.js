@@ -3,9 +3,11 @@ const app = express();
 const port = 3000;
 const ingredientRoutes = require('./src/routes/ingredients.routes');
 const usersRoutes = require('./src/routes/users.routes');
+const recipesRoutes = require('./src/routes/recipes.routes');
 
 app.use('/ingredients', ingredientRoutes)
 app.use('/users', usersRoutes)
+app.use('/recipes', recipesRoutes)
 
 app.all('*', (req, res, next) => res.sendStatus(404))
 
