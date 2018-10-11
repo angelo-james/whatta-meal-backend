@@ -10,8 +10,8 @@ const fetchRecipes = (userId, body) => {
     })
 }
 
-const fetchRecipe = (userId, body) => {
-    ingredient = ingredientsQuery.fetchRecipe(userId, body)
+const fetchRecipe = (userId, body, recipeid) => {
+    ingredient = ingredientsQuery.fetchRecipe(userId, body, recipeid)
 
     return ingredient.then(result => {
         return result.length < 1

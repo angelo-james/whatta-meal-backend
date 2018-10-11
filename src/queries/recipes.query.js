@@ -4,9 +4,12 @@ fetchRecipes = (userId, body) => {
     return knex('recipes').select('*').where('users_id', userId);
 }
 
-fetchRecipe = (userId, body) => {
+fetchRecipe = (userId, body, recipeid) => {
     //how to set up route so that i can get one specific ingredient.
-    return knex('recipes').select('recipes.id', 'recipes.name', 'recipes.users_id').where('id', id);
+    return knex('recipes')
+        .select('recipes.id', 'recipes.name', 'recipes.users_id')
+        .where('users_id', userId)
+        .where('id', recipeid);
 }
 
 createRecipe = (userId, body) => {
