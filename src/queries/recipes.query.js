@@ -1,5 +1,7 @@
 const knex = require('./db')
+//==================================================================
 
+//==================================================================
 fetchRecipes = (userId, body) => {
     return knex('recipes_ingredients') 
     .join('ingredients', 'ingredients.id', '=', 'recipes_ingredients.ingredients_id')
@@ -8,7 +10,9 @@ fetchRecipes = (userId, body) => {
     .select('users.id as userId', 'users.name as userName', 'recipes.id as recipeId', 'recipes.name as recipeName','ingredients.id as ingredientId', 'ingredients.name as ingredientName','recipes_ingredients.quantity','recipes_ingredients.measurement')
     .distinct()
 }
+//==================================================================
 
+//==================================================================
 fetchRecipe = (userId, body, recipeid) => {
     return knex('recipes_ingredients') 
     .join('ingredients', 'ingredients.id', '=', 'recipes_ingredients.ingredients_id')
@@ -19,7 +23,9 @@ fetchRecipe = (userId, body, recipeid) => {
     .where('recipes.id', recipeid)
     .distinct()
 }
+//==================================================================
 
+//==================================================================
 createRecipe = (userId, body) => {
     return knex('recipes')
         .insert({
@@ -27,7 +33,6 @@ createRecipe = (userId, body) => {
             users_id: userId
         })
         .returning('id')
-
         .then(result => {
             let arrayOfObj = [];
 
@@ -47,7 +52,6 @@ createRecipe = (userId, body) => {
             return err.message
         })
 }
-
 module.exports = {
     fetchRecipes,
     fetchRecipe,

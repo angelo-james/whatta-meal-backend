@@ -1,13 +1,19 @@
 const knex = require('./db')
+//==================================================================
 
+//==================================================================
 fetchUsers = () => {
     return knex.select().table('users');
 }
+//==================================================================
 
+//==================================================================
 fetchUser = (id) => {
     return knex('users').select('users.id', 'users.email', 'users.password').where('id', id);
 }
+//==================================================================
 
+//==================================================================
 createUser = (userInfo) => {
     return knex('users')
         .insert({
@@ -22,7 +28,6 @@ createUser = (userInfo) => {
             return err.message
         })
 }
-
 module.exports = {
     fetchUsers,
     fetchUser,

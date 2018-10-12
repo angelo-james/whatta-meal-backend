@@ -1,5 +1,7 @@
 const ingredientsQuery = require('../queries/recipes.query')
+//==================================================================
 
+//==================================================================
 const fetchRecipes = (userId, body) => {
     ingredients = ingredientsQuery.fetchRecipes(userId, body)
 
@@ -9,7 +11,9 @@ const fetchRecipes = (userId, body) => {
             : result
     })
 }
+//==================================================================
 
+//==================================================================
 const fetchRecipe = (userId, body, recipeid) => {
     ingredient = ingredientsQuery.fetchRecipe(userId, body, recipeid)
 
@@ -19,7 +23,9 @@ const fetchRecipe = (userId, body, recipeid) => {
         : result
     })
 }
+//==================================================================
 
+//==================================================================
 const createRecipe = (userId, body) => {
     ingredient = ingredientsQuery.createRecipe(userId, body)
 
@@ -29,7 +35,6 @@ const createRecipe = (userId, body) => {
         : result
     })
 }
-
 module.exports = {
     fetchRecipes,
     fetchRecipe,

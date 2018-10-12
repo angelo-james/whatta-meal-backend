@@ -1,5 +1,7 @@
 const model = require('../models/recipes.model');
+//==================================================================
 
+//==================================================================
 fetchRecipes = (req, res, next) => {
     let {userId} = req.params;
     let {body} = req;
@@ -8,12 +10,13 @@ fetchRecipes = (req, res, next) => {
     promise.then(result => {
         return result.error ? next(result) : res.status(200).json(result)
     })
-
     promise.catch(error => {
         next(error)
     })
 }
+//==================================================================
 
+//==================================================================
 fetchRecipe = (req, res, next) => {
     let {userId} = req.params;
     let {body} = req;
@@ -24,12 +27,13 @@ fetchRecipe = (req, res, next) => {
     promise.then(result => {
         return result.error ? next(result) : res.status(200).json(result)
     })
-
     promise.catch(error => {
         next(error)
     })
 }
+//==================================================================
 
+//==================================================================
 createRecipe = (req, res, next) => {
     let {userId} = req.params;
     let {body} = req
@@ -39,12 +43,10 @@ createRecipe = (req, res, next) => {
     promise.then(result => {
         return result.error ? next(result) : res.status(200).json(result)
     })
-
     promise.catch(error => {
         next(error)
     })
 }
-
 module.exports = {
     fetchRecipes,
     fetchRecipe,
