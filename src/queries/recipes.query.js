@@ -1,20 +1,21 @@
 const knex = require('./db')
 
 fetchRecipes = (userId, body) => {
-    return knex('recipes_ingredients')
-    // 'users.id', 'users.name', 'recipes.id', 'recipes.name', 
+    return knex('recipes_ingredients') 
     .join('ingredients', 'ingredients.id', '=', 'recipes_ingredients.ingredients_id')
     .join('recipes', 'recipes.id', '=', 'recipes_ingredients.recipes_id')
     .join('users', 'users.id', '=', 'recipes.users_id' )
-    .select('users.id as user id', 'users.name as users_name', 'recipes.id as recipe_id', 'recipes.name as recipe_name','ingredients.id as ingredients_id', 'ingredients.name as ingredients_name','recipes_ingredients.quantity','recipes_ingredients.measurement')
+    .select('users.id as userId', 'users.name as userName', 'recipes.id as recipeId', 'recipes.name as recipeName','ingredients.id as ingredientId', 'ingredients.name as ingredientName','recipes_ingredients.quantity','recipes_ingredients.measurement')
 }
 
 fetchRecipe = (userId, body, recipeid) => {
-    //how to set up route so that i can get one specific ingredient.
-    return knex('recipes')
-        .select('recipes.id', 'recipes.name', 'recipes.users_id')
-        .where('users_id', userId)
-        .where('id', recipeid);
+    return knex('recipes_ingredients') 
+    .join('ingredients', 'ingredients.id', '=', 'recipes_ingredients.ingredients_id')
+    .join('recipes', 'recipes.id', '=', 'recipes_ingredients.recipes_id')
+    .join('users', 'users.id', '=', 'recipes.users_id' )
+    .select('users.id as userId', 'users.name as userName', 'recipes.id as recipeId', 'recipes.name as recipeName','ingredients.id as ingredientId', 'ingredients.name as ingredientName','recipes_ingredients.quantity','recipes_ingredients.measurement')
+    .where('recipes.users_id', userId)
+    .where('recipes.id', recipeid)
 }
 
 createRecipe = (userId, body) => {
