@@ -1,5 +1,7 @@
 const usersQuery = require('../queries/users.query')
+//==================================================================
 
+//==================================================================
 const fetchUsers = () => {
     users = usersQuery.fetchUsers()
 
@@ -9,7 +11,9 @@ const fetchUsers = () => {
             : result
     })
 }
+//==================================================================
 
+//==================================================================
 const fetchUser = (id) => {
     user = usersQuery.fetchUser(id)
 
@@ -19,7 +23,9 @@ const fetchUser = (id) => {
         : result
     })
 }
+//==================================================================
 
+//==================================================================
 const createUser = (userInfo) => {
     user = usersQuery.createUser(userInfo)
 
@@ -29,7 +35,6 @@ const createUser = (userInfo) => {
         : result
     })
 }
-
 module.exports = {
     fetchUsers,
     fetchUser,

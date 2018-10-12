@@ -1,5 +1,7 @@
 const ingredientsQuery = require('../queries/ingredients.query')
+//==================================================================
 
+//==================================================================
 const fetchIngredients = () => {
     ingredients = ingredientsQuery.fetchIngredients()
 
@@ -9,7 +11,9 @@ const fetchIngredients = () => {
             : result
     })
 }
+//==================================================================
 
+//==================================================================
 const fetchIngredient = (id) => {
     ingredient = ingredientsQuery.fetchIngredient(id)
 
@@ -19,7 +23,9 @@ const fetchIngredient = (id) => {
         : result
     })
 }
+//==================================================================
 
+//==================================================================
 const createIngredient = (ingredientInfo) => {
     ingredient = ingredientsQuery.createIngredient(ingredientInfo)
 
@@ -29,7 +35,6 @@ const createIngredient = (ingredientInfo) => {
         : result
     })
 }
-
 module.exports = {
     fetchIngredients,
     fetchIngredient,
