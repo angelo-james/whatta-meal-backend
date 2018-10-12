@@ -13,9 +13,10 @@ const recipesRoutes = require('./src/routes/recipes.routes');
 //==================================================================
 
 //==================================================================
+app.use(cors());
 app.use(bodyParser.json());
-app.use('/users', ingredientRoutes)
 app.use('/users', usersRoutes)
+app.use('/users', ingredientRoutes)
 app.use('/users', recipesRoutes)
 //==================================================================
 
