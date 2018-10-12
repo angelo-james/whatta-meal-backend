@@ -33,6 +33,7 @@ fetchRecipe = (req, res, next) => {
 createRecipe = (req, res, next) => {
     let {userId} = req.params;
     let {body} = req
+    // console.log(body);
     let promise = model.createRecipe(userId, body);
 
     promise.then(result => {

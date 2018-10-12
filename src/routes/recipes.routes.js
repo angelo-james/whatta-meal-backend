@@ -5,6 +5,6 @@ const ctrl = require('../controllers/recipes.controller');
 router.get('/:userId/recipes', ctrl.fetchRecipes)
 router.get('/:userId/recipes/:id', ctrl.fetchRecipe)
 
-router.post('/', ctrl.createRecipe)
+router.post('/:userId/recipes', ctrl.createRecipe)
 
 module.exports = router;
