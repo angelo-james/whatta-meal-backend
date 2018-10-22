@@ -32,8 +32,21 @@ fetchUser = (req, res, next) => {
 //==================================================================
 const createUser = (req, res, next) => {
     let {body} = req
-    console.log(body);
     let promise = model.createUser(body);
+
+    promise.then(result => {
+        return result.error ? next(result) : res.status(200).json(result)
+    })
+    promise.catch(error => {
+        next(error)
+    })
+}
+//==================================================================
+
+//==================================================================
+const validateUser = (req, res, next) => {
+    let {body} = req;
+    let promise = model.validateUser(body);
 
     promise.then(result => {
         return result.error ? next(result) : res.status(200).json(result)
@@ -45,5 +58,6 @@ const createUser = (req, res, next) => {
 module.exports = {
     fetchUsers,
     fetchUser,
-    createUser
+    createUser,
+    validateUser
 }

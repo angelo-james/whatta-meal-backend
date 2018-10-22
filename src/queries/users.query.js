@@ -28,8 +28,15 @@ createUser = (userInfo) => {
             return err.message
         })
 }
+validateUser = (userInfo) => {
+    return knex('users')
+        .select(['users.id', 'users.name'])
+        .where('users.email', userInfo.email)
+        .where('users.password', userInfo.password)
+}
 module.exports = {
     fetchUsers,
     fetchUser,
-    createUser
+    createUser,
+    validateUser
 }

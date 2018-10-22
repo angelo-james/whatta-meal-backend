@@ -35,8 +35,19 @@ const createUser = (userInfo) => {
         : result
     })
 }
+
+const validateUser = (userInfo) => {
+    user = usersQuery.validateUser(userInfo)
+
+    return user.then(result => {
+        return !result
+        ? { error: 'error retreiving users', status: 404 }
+        : result
+    })
+}
 module.exports = {
     fetchUsers,
     fetchUser,
-    createUser
+    createUser,
+    validateUser
 }
