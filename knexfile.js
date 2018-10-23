@@ -7,16 +7,16 @@ module.exports = {
       host: 'localhost',
       database: 'whatta_meal'
     },
-    production: {
-      client: 'pg',
-      connection: process.env.PORT,
-      migrations: {
-        directory: './db/migrations'
-      },
-      seeds: {
-        directory: './db/seeds'
-      }
+    migrations: {
+      directory: './db/migrations'
     },
+    seeds: {
+      directory: './db/seeds'
+    }
+  },
+  production: {
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: './db/migrations'
     },
