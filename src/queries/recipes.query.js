@@ -1,6 +1,6 @@
 const knex = require('./db')
 //==================================================================
-
+//gets all recipes for user
 //==================================================================
 fetchRecipes = (userId, body) => {
     return knex('recipes_ingredients') 
@@ -11,8 +11,10 @@ fetchRecipes = (userId, body) => {
     .where('users.id', userId)
     .distinct()
 }
-//==================================================================
 
+
+//==================================================================
+//gets specific recipe for user
 //==================================================================
 fetchRecipe = (userId, body, recipeid) => {
     return knex('recipes_ingredients') 
@@ -24,8 +26,10 @@ fetchRecipe = (userId, body, recipeid) => {
     .where('recipes.id', recipeid)
     .distinct()
 }
-//==================================================================
 
+
+//==================================================================
+//create a new recipe for user
 //==================================================================
 createRecipe = (userId, body) => {
     return knex('recipes')
@@ -53,8 +57,38 @@ createRecipe = (userId, body) => {
             return err.message
         })
 }
+
+
+//==================================================================
+//deletes specific recipe for user
+//==================================================================
+deleteRecipe = (id) => {
+    return knex('recipes')
+    .where(`id`, id)
+    .del()
+    .returning('*')
+    .then(result => {
+        return {data: result, message: `You've successfully deleted your ${result[0].name} recipe`}
+    })
+    .catch(err => {
+        return err.message
+    })
+}
+
+
+//==================================================================
+// updates specific recipe for user
+//==================================================================
+const updateRecipe = (id, body) => {
+    return knex('recipes')
+        .where('id', id)
+        .update(body, '*')
+}
+
 module.exports = {
     fetchRecipes,
     fetchRecipe,
-    createRecipe
+    createRecipe,
+    deleteRecipe,
+    updateRecipe
 }

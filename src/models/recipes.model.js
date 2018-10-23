@@ -1,6 +1,6 @@
 const ingredientsQuery = require('../queries/recipes.query')
 //==================================================================
-
+//gets all recipes for user
 //==================================================================
 const fetchRecipes = (userId, body) => {
     ingredients = ingredientsQuery.fetchRecipes(userId, body)
@@ -11,8 +11,10 @@ const fetchRecipes = (userId, body) => {
             : result
     })
 }
-//==================================================================
 
+
+//==================================================================
+//gets specific recipe for user
 //==================================================================
 const fetchRecipe = (userId, body, recipeid) => {
     ingredient = ingredientsQuery.fetchRecipe(userId, body, recipeid)
@@ -23,8 +25,10 @@ const fetchRecipe = (userId, body, recipeid) => {
         : result
     })
 }
-//==================================================================
 
+
+//==================================================================
+//create a new recipe for user
 //==================================================================
 const createRecipe = (userId, body) => {
     ingredient = ingredientsQuery.createRecipe(userId, body)
@@ -35,8 +39,40 @@ const createRecipe = (userId, body) => {
         : result
     })
 }
+
+
+//==================================================================
+//deletes specific recipe for user
+//==================================================================
+const deleteRecipe = (id) => {
+    confirmDeletion = ingredientsQuery.deleteRecipe(id)
+
+    return confirmDeletion.then(result => {
+        return result.length < 1
+        ? { error: 'error deleting recipe', status: 400 }
+        : result
+    })
+}
+
+
+//==================================================================
+// updates specific recipe for user
+//==================================================================
+const updateRecipe = (id, body) => {
+    confirmUpdate = ingredientsQuery.updateRecipe(id, body)
+
+    return confirmUpdate.then(result => {
+        return result.length < 1
+        ? { error: 'error retreiving users', status: 404 }
+        : result
+    })
+}
+
+
 module.exports = {
     fetchRecipes,
     fetchRecipe,
-    createRecipe
+    createRecipe,
+    deleteRecipe,
+    updateRecipe
 }

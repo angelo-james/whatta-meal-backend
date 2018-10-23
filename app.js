@@ -1,12 +1,10 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const cors = require("cors");
 
-//==================================================================
 
-//==================================================================
 const ingredientRoutes = require('./src/routes/ingredients.routes');
 const usersRoutes = require('./src/routes/users.routes');
 const recipesRoutes = require('./src/routes/recipes.routes');
@@ -17,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/users', usersRoutes)
 app.use('/users', ingredientRoutes)
-app.use('/users', recipesRoutes)
+app.use('/recipes', recipesRoutes)
 //==================================================================
 
 //==================================================================
