@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.DATABASE_URL || 3000;
 const bodyParser = require('body-parser');
 const cors = require("cors");
-// process.env.DATABASE_URL
+
 
 const ingredientRoutes = require('./src/routes/ingredients.routes');
 const usersRoutes = require('./src/routes/users.routes');
