@@ -16,7 +16,10 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL,
+    connection: {
+      host: 'whatta-meal.herokuapp.com',
+      database: 'process.env.DATABASE_URL'
+    },
     migrations: {
       directory: './db/migrations'
     },
