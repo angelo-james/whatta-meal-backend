@@ -21,9 +21,7 @@ fetchRecipes = (req, res, next) => {
 //==================================================================
 fetchRecipe = (req, res, next) => {
     let {userId, recipeId} = req.params;
-    console.log({userId, recipeId})
     let {body} = req;
-    let recipeid = req.params.id;
 
     let promise = model.fetchRecipe(userId, recipeId);
 

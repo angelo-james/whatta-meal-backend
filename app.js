@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 app.use('/users', usersRoutes)
 app.use('/users', ingredientRoutes)
 app.use('/recipes', recipesRoutes)
+app.use('/users', recipesRoutes)
 //==================================================================
 
 //==================================================================
