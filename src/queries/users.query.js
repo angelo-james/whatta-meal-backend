@@ -24,7 +24,7 @@ createUser = (userInfo) => {
         .returning('*')
         .then(result => {
             return {
-                result,
+                data: result,
                 message: `'${userInfo.name}' was successfully created!`}
         })
         .catch(err => {
