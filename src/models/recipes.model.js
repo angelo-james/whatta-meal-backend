@@ -16,8 +16,8 @@ const fetchRecipes = (userId, body) => {
 //==================================================================
 //gets specific recipe for user
 //==================================================================
-const fetchRecipe = (userId, body, recipeid) => {
-    ingredient = ingredientsQuery.fetchRecipe(userId, recipeid)
+const fetchRecipe = (userId, recipeId) => {
+    ingredient = ingredientsQuery.fetchRecipe(userId, recipeId)
 
     return ingredient.then(result => {
         return result.length < 1
