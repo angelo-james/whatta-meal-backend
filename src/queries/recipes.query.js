@@ -7,7 +7,7 @@ fetchRecipes = (userId, body) => {
     // .join('ingredients', 'ingredients.id', '=', 'recipes_ingredients.ingredients_id')
     // .join('recipes', 'recipes.id', '=', 'recipes_ingredients.recipes_id')
     .join('users', 'users.id', '=', 'recipes.users_id' )
-    .select('users.id as id', 'users.name as name', 'recipes.id as recipeId', 'recipes.name as recipeName')
+    .select('users.id as id', 'users.name as name', 'recipes.id as recipeId', 'recipes.name as recipeName', 'recipes.description')
     // ,'ingredients.id as ingredientId', 'ingredients.name as ingredientName','recipes_ingredients.quantity','recipes_ingredients.measurement'
     .where('recipes.users_id', userId)
     .distinct()
