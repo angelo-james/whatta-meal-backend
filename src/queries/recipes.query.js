@@ -3,11 +3,11 @@ const knex = require('./db')
 //gets all recipes for user
 //==================================================================
 fetchRecipes = (userId, body) => {
-    return knex('recipes_ingredients') 
-    .join('ingredients', 'ingredients.id', '=', 'recipes_ingredients.ingredients_id')
-    .join('recipes', 'recipes.id', '=', 'recipes_ingredients.recipes_id')
-    .join('users', 'users.id', '=', 'recipes.users_id' )
-    .select('users.id as userId', 'users.name as userName', 'recipes.id as recipeId', 'recipes.name as recipeName','ingredients.id as ingredientId', 'ingredients.name as ingredientName','recipes_ingredients.quantity','recipes_ingredients.measurement')
+    return knex('recipes') 
+    // .join('ingredients', 'ingredients.id', '=', 'recipes_ingredients.ingredients_id')
+    // .join('recipes', 'recipes.id', '=', 'recipes_ingredients.recipes_id')
+    // .join('users', 'users.id', '=', 'recipes.users_id' )
+    // .select('users.id as userId', 'users.name as userName', 'recipes.id as recipeId', 'recipes.name as recipeName','ingredients.id as ingredientId', 'ingredients.name as ingredientName','recipes_ingredients.quantity','recipes_ingredients.measurement')
     .where('users.id', userId)
     .distinct()
 }
