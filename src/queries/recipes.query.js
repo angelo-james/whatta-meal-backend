@@ -5,7 +5,7 @@ const knex = require('./db')
 fetchRecipes = (userId, body) => {
     return knex('recipes') 
     // .join('ingredients', 'ingredients.id', '=', 'recipes_ingredients.ingredients_id')
-    // .join('recipes', 'recipes.id', '=', 'recipes_ingredients.recipes_id')
+    .join('recipes', 'recipes.users_id', '=', userId)
     .join('users', 'users.id', '=', userId )
     .select('users.id as id', 'users.name as name', 'recipes.id as recipeId', 'recipes.name as recipeName')
     // ,'ingredients.id as ingredientId', 'ingredients.name as ingredientName','recipes_ingredients.quantity','recipes_ingredients.measurement'
