@@ -7,7 +7,7 @@ const ctrl = require('../controllers/recipes.controller');
 // get routes for user recipes
 //==================================================================
 router.get('/:userId', ctrl.fetchRecipes)
-router.get('/:userId/recipes/:id', ctrl.fetchRecipe)
+router.get('/recipes/:userId/:id', ctrl.fetchRecipe)
 
 
 //==================================================================

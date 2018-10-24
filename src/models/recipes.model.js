@@ -17,7 +17,7 @@ const fetchRecipes = (userId, body) => {
 //gets specific recipe for user
 //==================================================================
 const fetchRecipe = (userId, body, recipeid) => {
-    ingredient = ingredientsQuery.fetchRecipe(userId, body, recipeid)
+    ingredient = ingredientsQuery.fetchRecipe(userId, recipeid)
 
     return ingredient.then(result => {
         return result.length < 1

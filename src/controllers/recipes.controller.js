@@ -20,11 +20,11 @@ fetchRecipes = (req, res, next) => {
 //gets specific recipe for user
 //==================================================================
 fetchRecipe = (req, res, next) => {
-    let {userId} = req.params;
+    let {userId, recipeId} = req.params;
     let {body} = req;
     let recipeid = req.params.id;
 
-    let promise = model.fetchRecipe(userId, body, recipeid);
+    let promise = model.fetchRecipe(userId, recipeId);
 
     promise.then(result => {
         return result.error ? next(result) : res.status(200).json(result)
