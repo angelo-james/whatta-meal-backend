@@ -80,6 +80,26 @@ exports.seed = function(knex, Promise) {
           recipes_id: 2,
           ingredients_id: 16,
           measurement: 'oz'},
+        { quantity: '4',
+          recipes_id: 4,
+          ingredients_id: 17,
+          measurement: 'cup'},
+        { quantity: '3',
+          recipes_id: 4,
+          ingredients_id: 21,
+          measurement: 'cups'},
+        { quantity: '1',
+          recipes_id: 3,
+          ingredients_id: 18,
+          measurement: 'leaf'},
+        { quantity: '1',
+          recipes_id: 3,
+          ingredients_id: 19,
+          measurement: 'diced'},
+        { quantity: '1',
+          recipes_id: 3,
+          ingredients_id: 20,
+          measurement: 'slice'}
       ]);
     });
 };
