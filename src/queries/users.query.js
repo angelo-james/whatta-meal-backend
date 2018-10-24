@@ -22,7 +22,9 @@ createUser = (userInfo) => {
             password: userInfo.password
         })
         .then(result => {
-            return `'${userInfo.name}' was successfully created!`
+            return {
+                result,
+                message: `'${userInfo.name}' was successfully created!`}
         })
         .catch(err => {
             return err.message
