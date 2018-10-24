@@ -21,6 +21,7 @@ createUser = (userInfo) => {
             email: userInfo.email, 
             password: userInfo.password
         })
+        .returning('*')
         .then(result => {
             return {
                 result,
