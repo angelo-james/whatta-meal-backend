@@ -7,7 +7,7 @@ const fetchRecipes = (userId, body) => {
 
     return ingredients.then(result => {
         return result.length < 1
-            ? { error: 'error retreiving users', status: 404 }
+            ? { error: 'error retreiving user recipes', status: 404 }
             : result
     })
 }
@@ -21,7 +21,7 @@ const fetchRecipe = (userId, recipeId) => {
 
     return ingredient.then(result => {
         return result.length < 1
-        ? { error: 'error retreiving users', status: 404 }
+        ? { error: 'error retreiving user recipe', status: 404 }
         : result
     })
 }
@@ -35,7 +35,7 @@ const createRecipe = (userId, body) => {
 
     return ingredient.then(result => {
         return result.length < 1
-        ? { error: 'error retreiving users', status: 404 }
+        ? { error: 'error creating user recipe', status: 404 }
         : result
     })
 }
@@ -63,7 +63,7 @@ const updateRecipe = (id, body) => {
 
     return confirmUpdate.then(result => {
         return result.length < 1
-        ? { error: 'error retreiving users', status: 404 }
+        ? { error: 'error updating user recipe', status: 404 }
         : result
     })
 }

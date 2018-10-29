@@ -8,6 +8,7 @@ fetchRecipes = (req, res, next) => {
     let promise = model.fetchRecipes(userId, body);
 
     promise.then(result => {
+        console.log(result, 'this is the result')
         return result.error ? next(result) : res.status(200).json(result)
     })
     promise.catch(error => {

@@ -7,7 +7,7 @@ const fetchIngredients = () => {
 
     return ingredients.then(result => {
         return result.length < 1
-            ? { error: 'error retreiving users', status: 404 }
+            ? { error: 'error retreiving user ingredients', status: 404 }
             : result
     })
 }
@@ -19,7 +19,7 @@ const fetchIngredient = (id) => {
 
     return ingredient.then(result => {
         return result.length < 1
-        ? { error: 'error retreiving users', status: 404 }
+        ? { error: 'error retreiving user ingredient', status: 404 }
         : result
     })
 }
@@ -31,7 +31,7 @@ const createIngredient = (ingredientInfo) => {
 
     return ingredient.then(result => {
         return result.length < 1
-        ? { error: 'error retreiving users', status: 404 }
+        ? { error: 'error creating user ingredients', status: 404 }
         : result
     })
 }
