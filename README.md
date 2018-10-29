@@ -2,6 +2,10 @@
 
 A full-stack application that was built for the idea to give a user the ability to save their recipes for meals that they enjoyed cooking and eatting. No more forgotten recipes or misplacing them when they're on a piece of paper. Fututre feature would like to be able to add a social part to allow users to share with the community of other users.
 
+## Entity Relationship Diagram
+
+![Image of ER Diagram Schema](https://snag.gy/Jr9pbD.jpg)
+
 ### Installing
 
 Use npm to install packages that were used for this project
