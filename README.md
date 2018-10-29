@@ -25,7 +25,7 @@ npm install pg
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - Front-end framework
-* [PostgreSQL](https://www.postgresql.org/) - Dependency Management
+* [PostgreSQL](https://www.postgresql.org/) - Database
 * [Node.js](https://nodejs.org/en/) - Javascript
 
 ## Authors
