@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test mocha --exit",
     "knex": "knex",
     "start": "node app.js"
   },
@@ -21,9 +21,11 @@
   "homepage": "https://github.com/angelo-james/whatta-meal-backend#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "knex": "^0.15.2",
+    "mocha": "^5.2.0",
     "pg": "^7.5.0"
   }
 }
